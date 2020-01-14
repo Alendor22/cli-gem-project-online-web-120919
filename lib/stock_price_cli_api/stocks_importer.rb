@@ -10,7 +10,7 @@ class StocksImporter
     
 
   end
-  binding.pry
+  #binding.pry
   puts "hello world"
 
 
