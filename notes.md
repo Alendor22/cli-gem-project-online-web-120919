@@ -1,0 +1,3 @@
+Overview
+
+My project is going to connect to the IEXcloud.io API and is going to give me stock data when I pass in a stock as an argument.  I will chose a stock from a .csv file that I will parse and use as my selection to instantiate and create new stock objects when it is passed in as an argument.  I will be able to sort through the selection of stocks objects that have been searched.  I will be able to instantiate a new company and 
