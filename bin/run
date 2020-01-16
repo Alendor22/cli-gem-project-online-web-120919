@@ -1,8 +1,10 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "stock_price_cli_api"
 require_relative "../config/environment"
+
+require_all 'lib'
+
 
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
@@ -11,4 +13,6 @@ require_relative "../config/environment"
 # require "pry"
 # Pry.start
 
-StocksController.new.call
+#StocksController.new.call
+binding.pry
+puts "hello world!"

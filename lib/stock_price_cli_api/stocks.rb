@@ -24,10 +24,9 @@ class Stocks
   end
 
   def self.find_highest_stock_price
-    Stocks.all.find { |stock| stock[latestPrice] == stock[latestPrice].max }
+    Stocks.all.max { |a, b| a.latestPrice <=> b.latestPrice }
   end
-  binding.pry
-  puts "hello world!"
+  
 
 
     # company_name = stock_quote_data[companyName]
@@ -37,4 +36,5 @@ class Stocks
     # change_in_price = stock_quote_data[change]
 
 end
+
 

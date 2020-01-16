@@ -17,7 +17,9 @@ class StocksImporter
     stock_data = Stocks.new(quote_hash)
   end
 
-  #CSV.read("stock_list.csv").parse
+  def csv_parser(path)
+    lines = File.read(path).split(/\r\n"null","AMEX","NYSE","NASDAQ"/).map { |line| line.split(",") }
+  end
 
 end
 #binding.pry
