@@ -24,17 +24,30 @@ class Stocks
   end
 
   def self.find_highest_stock_price
-    Stocks.all.max { |a, b| a.latestPrice <=> b.latestPrice }
+    self.all.max { |a, b| a.latestPrice <=> b.latestPrice }
   end
-  
+
+  def self.biggest_change_in_price
+    self.all.max { |a, b| a.change <=> b.change }
+  end
+
+  def self.listed_exchange(exchange)
+    self.all.select { |stock| stock.primaryExchange == exchange }
+  end
+
+  def highest_price_on_exchange(exchange)
+    find_highest_stock_price.listed_exchange(exchange).sort { |a, b| a.stock <=> b.stock }
+    # binding.pry
+    # puts "hello world!"
+  end
 
 
-    # company_name = stock_quote_data[companyName]
-    # symbol = stock_quote_data[symbol]
-    # current_price = stock_quote_data[latestPrice]
-    # previous_close_price = stock_quote_data[previousClose]
-    # change_in_price = stock_quote_data[change]
 
 end
+
+
+# binding.pry
+# puts "hello world!"
+#highest_price_on_exchange("nasdaq")
 
 
