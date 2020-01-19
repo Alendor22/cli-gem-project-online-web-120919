@@ -1,4 +1,8 @@
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in stock_price_cli_api.gemspec
-gemspec
+gem 'dotenv'
+gem 'rest-client'
+gem 'json'
+gem 'tty-prompt'
+gem 'pry'
+gem 'require_all'

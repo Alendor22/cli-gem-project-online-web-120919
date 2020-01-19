@@ -2,7 +2,6 @@ require 'dotenv/load'
 require 'rest-client'
 require 'json'
 require 'pry'
-require 'csv'
 require_relative 'stocks'
 require_relative 'stock_list'
 
