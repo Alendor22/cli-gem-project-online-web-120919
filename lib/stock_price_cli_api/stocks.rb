@@ -28,7 +28,7 @@ class Stocks
   end
   
   def self.find_lowest_stock_price
-    self.all.min { |a, b| a.latestPrice[:"companyName"] <=> b.latestPrice[:"companyName"] }
+    self.all.min { |a, b| a.latestPrice <=> b.latestPrice }
   end
 
   def self.find_highest_stock_price
