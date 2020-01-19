@@ -60,35 +60,14 @@ class StocksController
   def stocks_system
     @prompt.select("Please Select an Option below:") do |menu|
       menu.choice "List all companies in data set.", -> { puts "#{Stocks.all_companies}" }
-      #sleep(5)
       menu.choice "Find the lowest stock price among data set.", -> { puts "#{Stocks.find_lowest_stock_price.latestPrice}" }
-      sleep(4)
+      sleep(2)
       menu.choice "Find the highest stock price among data set.", -> { puts "#{Stocks.find_highest_stock_price.latestPrice}" }
       menu.choice "Find the largest change in price in USD.", -> { puts "#{Stocks.biggest_change_in_price.change}" }
-      menu.choice "Display stocks listed on an particular exchange (sub-menu).", -> { sub_menu }
-      menu.choice "Display the highest stock price on a particular exchange (sub-menu).", -> { sub_menu }
-      menu.choice "Display the all the company names and their current trading price on a particular exchange (sub-meu).", -> { sub_menu }
       menu.choice "Go back to the stock validation menu.", -> { stock_input }
       menu.choice "Exit the system", -> { exit_method }
     end
     stocks_system
-  end
-
-  def sub_menu
-    @exchange = @prompt.ask("Please enter an American exchange:")
-    @prompt.select("Please Select an Option below:") do |menu|
-      menu.choice "Stocks listed on an exchange.", -> do puts "All the stocks in the data set on the exchange enter are:
-      #{Stocks.listed_exchange(@exchange)}"
-      end
-      menu.choice "Display the highest stock price on a particular exchange.", -> do puts " The highest priced stock in the data set on the exchange entered is:
-      #{Stocks.highest_price_on_exchange(@exchange)}"
-      end
-      menu.choice "Display the all the company names and their current price on a particular exchange.", -> do puts "All the companies on the 
-      exchange entered and their current trading prices in the data set are: #{Stocks.new.all_companies_exchange(@exchange)}"
-      end
-      menu.choice "Go back to stock system menu.", -> { stocks_system }
-      menu.choice "Exit the system", -> { exit_method }
-    end
   end
 
   def exit_method
