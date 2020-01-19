@@ -6979,8 +6979,9 @@ class StockList
     ["ZYXI"]
   ]
 
-  def stock_exists(input)
-    @@stock_list.find { |stock| stock[0] == input.upcase }
+  def stock_exists(symbol_input)
+    @@stock_list.find { |stock| stock[0] == symbol_input.upcase }
+    
   end
   
 end

@@ -6,8 +6,6 @@ require 'csv'
 require_relative 'stocks'
 require_relative 'stock_list'
 
-
-
 class StocksImporter
 
   BASE_URL = "https://cloud.iexapis.com/stable/"
@@ -18,9 +16,4 @@ class StocksImporter
     stock_data = Stocks.new(quote_hash)
   end
 
-  
-  
-    
-
 end
-#StocksImporter.new.stock_search("bbby")

@@ -13,6 +13,7 @@ require_all 'lib'
 # require "pry"
 # Pry.start
 
+#puts "Please wait while the Lendor Firm loads the stock list database."
 cli = StocksController.new
 cli.login
 cli.stock_input

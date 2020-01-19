@@ -22,6 +22,14 @@ class Stocks
   def save
     @@all << self
   end
+  
+  def self.all_companies
+    self.all.map { |stock| stock.companyName }.uniq
+  end
+  
+  def self.find_lowest_stock_price
+    self.all.min { |a, b| a.latestPrice[:"companyName"] <=> b.latestPrice[:"companyName"] }
+  end
 
   def self.find_highest_stock_price
     self.all.max { |a, b| a.latestPrice <=> b.latestPrice }
@@ -31,23 +39,4 @@ class Stocks
     self.all.max { |a, b| a.change <=> b.change }
   end
 
-  def self.listed_exchange(exchange)
-    self.all.select { |stock| stock.primaryExchange == exchange }
-  end
-
-  def highest_price_on_exchange(exchange)
-    find_highest_stock_price.listed_exchange(exchange).sort { |a, b| a.stock <=> b.stock }
-    # binding.pry
-    # puts "hello world!"
-  end
-
-
-
 end
-
-
-# binding.pry
-# puts "hello world!"
-#highest_price_on_exchange("nasdaq")
-
-
